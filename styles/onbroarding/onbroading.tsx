@@ -3,7 +3,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-
+import {
+  responsiveWidth,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 // Now you can use wp and hp for responsive width and height calculations
 export const styles = StyleSheet.create({
   firstContainer: {
@@ -43,16 +46,25 @@ export const styles = StyleSheet.create({
     color: "#575757",
     fontSize: hp("2%"),
   },
-  buttonWrapper:{
+  buttonWrapper: {
     backgroundColor: "#2467EC",
-    width:wp("92%"),
-    paddingVertical:18,
-    borderRadius:4,
-    marginTop:40
+    width: wp("92%"),
+    paddingVertical: 18,
+    borderRadius: 4,
+    marginTop: 40,
   },
-  buttonText:{
-    color:"#FFF",
-    textAlign:"center"
-  }
+  buttonText: {
+    color: "#FFF",
+    textAlign: "center",
+  },
 
+  welComeButtonStyle: {
+    backgroundColor: "#2467EC",
+    width: responsiveWidth(88),
+    height: responsiveHeight(5.5),
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
 });

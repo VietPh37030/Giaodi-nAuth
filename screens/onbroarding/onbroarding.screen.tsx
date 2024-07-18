@@ -8,12 +8,16 @@ import {
 } from "@expo-google-fonts/nunito";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "@/styles/onbroarding/onbroading";
+import { router } from "expo-router";
 
 export default function OnBoardingScreen() {
   let [fontsLoaded, fontError] = useFonts({
-    // Raleway_700Bold,
-    // Nunito_400Regular,
-    // Nunito_700Bold_Italic,
+Raleway_700Bold,
+Nunito_400Regular,
+Nunito_700Bold_Italic,
+
+    Rale_700Bold: require("../../assets/fonts/Raleway-Bold.ttf"),
+    Nuti_black: require("../../assets/fonts/Nunito-Black.ttf"),
   });
   if (!fontsLoaded && !fontError) {
     return null;
@@ -49,18 +53,20 @@ export default function OnBoardingScreen() {
             style={styles.titleShape3}
             source={require("../../assets/onboarding/shape_6.png")}
           />
-          <Text style={[styles.titleText]}>Vietcodmey</Text>
+          <Text style={[styles.titleText, { fontFamily: "Nuti_black" }]}>
+            Vietcodmey
+          </Text>
         </View>
         <View style={styles.dscpWrapper}>
-            <Text style={styles.dscpText}>
+          <Text style={styles.dscpText}>
             Explore a variety of interative lesson
-            </Text>
-            <Text style={[styles.dscpText]}>
-                Video,quizze & assigment
-            </Text>
+          </Text>
+          <Text style={[styles.dscpText]}>Video,quizze & assigment</Text>
         </View>
-        <TouchableOpacity style={styles.buttonWrapper}>
-<Text style={[styles.buttonText]}>Getting Started </Text>
+        <TouchableOpacity style={styles.buttonWrapper}
+        onPress={()=>router.push("/(routes)/welcome-intro")}
+        >
+          <Text style={[styles.buttonText]}>Getting Started </Text>
         </TouchableOpacity>
       </View>
     </LinearGradient>
