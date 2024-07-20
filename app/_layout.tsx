@@ -45,8 +45,11 @@ function RootLayoutNav() {
   return <>{isLoggedIn ? <View></View> :(
     <Stack screenOptions={{headerShown:false}}>
       <Stack.Screen name="index" />
-      <Stack.Screen name="(routes)/welcome-intro/index.tsx"/>
-      <Stack.Screen name="(routes)/login/index.tsx"/>
+      <Stack.Screen name="(routes)/welcome-intro/index"/>
+      <Stack.Screen name="(routes)/login/index"/>
+      <Stack.Screen name="(routes)/sign-up/index"/>
+      <Stack.Screen name="(routes)/forgot-password/index"/>
+      <Stack.Screen name="(routes)/verifyAccount/index"/>
     </Stack>
   )}</>;
 }

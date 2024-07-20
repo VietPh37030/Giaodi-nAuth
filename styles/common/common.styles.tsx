@@ -43,5 +43,13 @@ export const commonStyles = StyleSheet.create({
     fontSize: hp("2.5%"),
     textAlign:'center',
     color:"#575757"
+  },
+  errorContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    marginHorizontal:16,
+    position:'absolute',
+    top:60
   }
+
 });

@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import {
+  AntDesign,
   Entypo,
   FontAwesome,
   Fontisto,
@@ -30,7 +31,7 @@ import LottieView from "lottie-react-native";
 import { commonStyles } from "@/styles/common/common.styles";
 import { router } from "expo-router";
 
-export default function LoginScreen() {
+export default function SignUpScreen() {
   const [fontsLoaded] = useFonts({
     Raleway_700Bold,
     Nunito_400Regular,
@@ -42,6 +43,7 @@ export default function LoginScreen() {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [buttonSpinner, setButtonSpinner] = useState(false);
   const [userInfo, setUserInfo] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -80,7 +82,11 @@ export default function LoginScreen() {
       setUserInfo({ ...userInfo, password: value });
     }
   };
-  const handleSignIn = () => {};
+  
+  const handleSignIn = () => {
+    router.push('/(routes)/verifyAccount')
+  };
+
   if (!fontsLoaded) {
     return null;
   }
@@ -93,37 +99,56 @@ export default function LoginScreen() {
       <ScrollView>
         <LottieView
           style={style.signInImage}
-          source={require("@/assets/animation/edu1.json")}
+          source={require("@/assets/animation/edu2.json")}
           autoPlay
           loop
         />
         <Text style={[style.welcomeText, { fontFamily: "Raleway_700Bold" }]}>
-          Welcome back!
+          Let get started!
         </Text>
         <Text style={style.learningText}>
-          Login to your existing account of{" "}
+          Create an account to{" "}
           <Text style={{ color: "#1DB954", fontFamily: "Raleway_700Bold" }}>
             Vietcodemy
           </Text>{" "}
+          to get all features
         </Text>
         <View style={style.inputContainer}>
           <View>
-            <TextInput
-              style={[style.input, { paddingLeft: 40 }]}
-              keyboardType="email-address"
-              value={userInfo.email}
-              placeholder="support@vietcodemy.com"
-              onChangeText={(value) =>
-                setUserInfo({ ...userInfo, email: value })
-              }
-            />
-            <Fontisto
-              style={{ position: "absolute", left: 26, top: 17.8 }}
-              name="email"
-              size={20}
-              color={"#A1A1A1"}
-            />
-
+            <View>
+              <TextInput
+                style={[style.input, { paddingLeft: 40 }]}
+                value={userInfo.name}
+                placeholder="PhamVietAnh"
+                keyboardType="default"
+                onChangeText={(value) =>
+                  setUserInfo({ ...userInfo, name: value })
+                }
+              />
+              <AntDesign
+                style={{ position: "absolute", left: 26, top: 17.8 }}
+                name="user"
+                size={20}
+                color={"#A1A1A1"}
+              />
+            </View>
+            <View style={{ marginTop: 20 }}>
+              <TextInput
+                style={[style.input, { paddingLeft: 40 }]}
+                keyboardType="email-address"
+                value={userInfo.email}
+                placeholder="support@vietcodemy.com"
+                onChangeText={(value) =>
+                  setUserInfo({ ...userInfo, email: value })
+                }
+              />
+              <Fontisto
+                style={{ position: "absolute", left: 26, top: 17.8 }}
+                name="email"
+                size={20}
+                color={"#A1A1A1"}
+              />
+            </View>
             <View style={{ marginTop: 20 }}>
               <TextInput
                 style={[style.input, { paddingLeft: 40 }]}
@@ -162,16 +187,6 @@ export default function LoginScreen() {
               </View>
             )}
           </View>
-          <TouchableOpacity onPress={() => router.push("(routes)/forgot-password")}>
-            <Text
-              style={[
-                style.forgotSection,
-                { fontFamily: "Nunito_600SemiBold" },
-              ]}
-            >
-              Forgot Passwrod?
-            </Text>
-          </TouchableOpacity>
           <TouchableOpacity
             style={{
               padding: 16,
@@ -192,7 +207,7 @@ export default function LoginScreen() {
                   fontFamily: "Raleway_700Bold",
                 }}
               >
-                Sign In
+                Sign Up
               </Text>
             )}
           </TouchableOpacity>
@@ -217,9 +232,9 @@ export default function LoginScreen() {
 
           <View style={style.signUpRedirect}>
             <Text style={{ fontSize: 18, fontFamily: "Raleway_600SemiBold" }}>
-              Don't have an account ?
+              Already have an account ?
             </Text>
-            <TouchableOpacity onPress={() => router.push("/(routes)/sign-up")}>
+            <TouchableOpacity onPress={() => router.push("/(routes)/login")}>
               <Text
                 style={{
                   fontSize: 18,
@@ -229,7 +244,7 @@ export default function LoginScreen() {
                 }}
               >
                 {" "}
-                SignUp
+                Login
               </Text>
             </TouchableOpacity>
           </View>

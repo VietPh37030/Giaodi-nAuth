@@ -55,7 +55,7 @@ export default function WelcomeIntroScreen() {
         router.push("/(routes)/login");
       }}
       onSkip={() => {
-        router.push("/(routes)/login");
+        router.push("/(routes)/Login");
       }}
       renderNextButton={() => (
         <View style={styles.welComeButtonStyle}>

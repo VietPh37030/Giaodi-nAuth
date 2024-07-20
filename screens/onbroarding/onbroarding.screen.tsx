@@ -53,7 +53,7 @@ Nunito_700Bold_Italic,
             style={styles.titleShape3}
             source={require("../../assets/onboarding/shape_6.png")}
           />
-          <Text style={[styles.titleText, { fontFamily: "Nuti_black" }]}>
+          <Text style={[styles.titleText, { color:"#1DB954",fontFamily: "Nuti_black" }]}>
             Vietcodmey
           </Text>
         </View>

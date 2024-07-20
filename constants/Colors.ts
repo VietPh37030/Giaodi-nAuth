@@ -1,6 +1,6 @@
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
-
+const greenSpotify ='#1DB954'
 export default {
   light: {
     text: '#000',
